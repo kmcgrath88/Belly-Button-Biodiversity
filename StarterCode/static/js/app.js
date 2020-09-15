@@ -68,7 +68,6 @@ function optionChanged(values) {
     Plotly.newPlot("bubble", bubbleTrace);
 
 
-
     // Demographic information
     var info = d3.select('#sample-metadata');
     info.html('');
@@ -79,9 +78,10 @@ function optionChanged(values) {
     console.log(metaIDFilter[0]);
 
     Object.entries(metaIDFilter[0]).forEach(([key,value]) => {
-    info.append('h6').text(`${key}:${value}`);})
+    info.append('h6').text(`${key}:${value}`);
+    });
 
-})
+});
 }
 
 
