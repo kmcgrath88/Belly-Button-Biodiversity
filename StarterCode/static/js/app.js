@@ -8,28 +8,40 @@ d3.json("samples.json").then((incomingData) => {
     })
 });
 
-
 function optionChanged(values) {
     d3.json("samples.json").then((incomingData) => {
-        var sampleID = incomingData.samples
-        var sampleIDFilter = sampleID.filter(value => value.id === values);
-        console.log(sampleIDFilter[0]);
-        console.log(sampleIDFilter[0].id.sample_values)
-        var x_axis = sampleIDFilter[0];
-        console.log(x_axis);
+        var samples = incomingData.samples
+        var sampleIDFilter = samples.filter(value => value.id == values);
+        
+
+        var subjectID = sampleIDFilter[0].id
+        var result = sampleIDFilter[0];
+        console.log(result);
+        var otuIDs = result.otu_ids;
+        var otuLabels = result.otu_labels;
+        var sampleValues = result.sample_values;    
     
-        // slice through (.slice) sample_values and .reverse to get top 10 for x and y axis
-        // .map to iterate over object to convert ids to strings
+        var yticks = otuIDs.slice(0, 10).map(otuID => `OTU ${otuID}`).reverse();
 
     // Create your trace.
     var trace = [{
-        x: x_axis.sample_values,
-        y: x_axis.otu_ids,
+        x: sampleValues.slice(0,10).reverse(),
+        y: yticks,
+        text: otuLabels.slice(0,10).reverse(),
         type: "bar",
         orientation: 'h',
     }]
 
-    Plotly.newPlot("bar", trace);
+    // Define the plot layout
+    var layout = {
+      title: `Top 10 OTUs for Subject ID: ${subjectID}`,
+      xaxis: { title: "Sample Values" },
+      yaxis: { 
+        title: "OTUs",
+        showticklabels: true}
+    };
+
+    Plotly.newPlot("bar", trace, layout);
 
     })
 }
@@ -37,18 +49,3 @@ function optionChanged(values) {
 
 
 
-//     };
-
-//     // Create the data array for our plot
-//     var data = [trace];
-
-//     // Define the plot layout
-//     var layout = {
-//       title: "The highest critically acclaimed movies.",
-//       xaxis: { title: "Title" },
-//       yaxis: { title: "Metascore (Critic) Rating"}
-//     };
-
-//     // Plot the chart to a div tag with id "bar-plot"
-//     Plotly.newPlot("bar-plot", data, layout);
-//   });
