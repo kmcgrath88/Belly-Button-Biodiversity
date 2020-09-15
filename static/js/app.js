@@ -10,6 +10,7 @@ d3.json("samples.json").then((incomingData) => {
     })
 });
 
+// all one function even for bonus?
 
 function optionChanged(values) {
     d3.json("samples.json").then((incomingData) => {
@@ -67,9 +68,23 @@ function optionChanged(values) {
 
     Plotly.newPlot("bubble", bubbleTrace);
 
+    // Gauge chart --- what data should this be pulling from????
+    var gaugeTrace = [
+        {
+            domain: { x: [0, 1], y: [0, 1] },
+            value: 270,
+            title: { text: "Belly Button Washing Frequency" },
+            type: "indicator",
+            mode: "gauge+number"
+        }
+    ];
+
+    Plotly.newPlot("gauge", gaugeTrace);
+
 
     // Demographic information
     var info = d3.select('#sample-metadata');
+    // console.log(info);
     info.html('');
     var metadata = incomingData.metadata;
     console.log(metadata);
