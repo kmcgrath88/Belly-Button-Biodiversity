@@ -109,19 +109,58 @@ function optionChanged(values) {
             info.append('h6').text(`${key}:${value}`);
         });
 
-        // Gauge chart --- what data should this be pulling from????
+        // Gauge chart.
+        // source: https://com2m.de/blog/technology/gauge-charts-with-plotly/
+        
         var washFreq = metaIDFilter[0].wfreq;
+
         var gaugeTrace = [
             {
                 domain: { x: [0, 1], y: [0, 1] },
                 value: washFreq,
-                title: { text: "Belly Button Washing Frequency" },
                 type: "indicator",
-                mode: "gauge+number"
+                mode: "gauge+number",
+                values: [ 50/9, 50/9, 50/9, 50/9, 50/9, 50/9, 50/9, 50/9, 50/9, 50],
+                rotation: 90,
+                text: [ "8-9", "7-8", "6-7", "5-6", "4-5", "3-4", "2-3", "1-2", "0-1", ""],
+                  textinfo: "text",
+                  textposition: "inside",
+                  marker: {
+                    colors: ["rgba(197, 96, 199, 0.9)", "rgba(197, 96, 199, 0.8)", "rgba(197, 96, 199, 0.7)", "rgba(197, 96, 199, 0.6)",
+                      "rgba(197, 96, 199, 0.5)", "rgba(197, 96, 199, 0.4)", "rgba(197, 96, 199, 0.3)", " rgba(197, 96, 199, 0.2)",
+                     "rgba(197, 96, 199, 0.1)", "transparent"]
+                  },
+                title: { text: "Belly Button Washing Frequency",
+                        horizontalAlignment: "center",
+                        verticalAlignment: "top",
+            },
+                  hoverinfo: "text",
+                  hole: .5,
+                  type: "pie",
+                  showlegend: false
             }
         ];
+        
+        
+        var layout = { width: 600, height: 500, margin: { t: 0, b: 0 } };
+        // var gaugeLayout = {
+        //     shapes:[{
+        //         type: 'path',
+        //        // path: path,
+        //         fillcolor: '850000',
+        //         line: {
+        //           color: '850000'
+        //         }
+        //       }],
+        //     height: 500,
+        //     width: 500,
+        //     // xaxis: {zeroline:false, showticklabels:false,
+        //     //            showgrid: false, range: [-1, 1]},
+        //     // yaxis: {zeroline:false, showticklabels:false,
+        //     //            showgrid: false, range: [-1, 1]}
+        //   };
 
-        Plotly.newPlot("gauge", gaugeTrace);
+         Plotly.newPlot("gauge", gaugeTrace, layout); //, gaugeLayout);
 
     });
 };
