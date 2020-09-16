@@ -1,14 +1,23 @@
 // Use d3.json() to fetch data from JSON file
 // Incoming data is internally referred to as incomingData
 // Appending sample IDs to dropdown
+
+function init(){
+    
 d3.json("samples.json").then((incomingData) => {
     var dropDown = d3.select('#selDataset');
     //console.log(incomingData);
     incomingData.names.forEach((name) => {
         dropDown.append('option').text(name).property('value', name); 
     
+        
     })
+    var firstID = incomingData.names[0];
+    optionChanged(firstID);
+
+    
 });
+};
 
 // all one function even for bonus?
 
@@ -40,7 +49,9 @@ function optionChanged(values) {
         text: otuLabels.slice(0,10).reverse(),
         type: "bar",
         orientation: 'h',
-    }];
+        marker: {
+            color: 'rgba(18,162,169,.75)',
+    }}];
 
     // Define the bar graph layout.
     var barLayout = {
@@ -60,10 +71,11 @@ function optionChanged(values) {
         mode: "markers",
         marker: {
             size: sampleValues,
-            //color: otuIDS, -- throwing error
+            color: otuIDs,
+            colorscale: 'Viridis',
             
         },
-        //text: otu_labels, -- throwing error
+        text: otuLabels,
     }];
 
     Plotly.newPlot("bubble", bubbleTrace);
@@ -99,4 +111,4 @@ function optionChanged(values) {
 });
 }
 
-
+init();
