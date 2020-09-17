@@ -1,4 +1,37 @@
-#gauge {
-    max-height: calc(200px + 60px) !important;
-    overflow:hidden;
-};
+.jumbotron {
+    background-image: url("../images/microbes3.jpg");
+    background-size: cover;
+    opacity: 0.9;
+}
+
+.well{
+    background-image: url("../images/microbes2.jpg");
+    background-size: cover;
+    /* opacity: 0.9;  */
+}
+
+h1{
+    color: white !important;
+    font-weight: 549;
+}
+
+h3{
+    font-weight: 550;
+    text-align: center;
+}
+
+h4{
+    color: white !important;
+    
+    text-align: center;
+}
+
+p{
+    color: white !important;
+    font-weight: 549;
+}
+
+select {
+    display: block;
+    margin: 0 auto;
+    }

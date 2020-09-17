@@ -69,10 +69,10 @@ function optionChanged(values) {
 
         // Define the bar graph layout.
         var barLayout = {
-            title: `Top 10 OTUs for Subject ID: ${subjectID}`,
-            xaxis: { title: "Sample Values" },
+            title: `<b> Top 10 OTUs for Subject ID: ${subjectID} </b>`,
+            xaxis: { title: "<b>Sample Values</b>" },
             yaxis: {
-                title: "OTUs",
+                title: "<b>OTUs</b>",
                 showticklabels: true
             }
         };
@@ -106,11 +106,18 @@ function optionChanged(values) {
         console.log(metaIDFilter[0]);
 
         Object.entries(metaIDFilter[0]).forEach(([key, value]) => {
+            if (key === 'id'){
+                key = key.toUpperCase(); // bold?
+            }
+            else {
+                 key = key.replace(/(^\w{1})|(\s{1}\w{1})/g, match => match.toUpperCase());
+             };
+    
             info.append('h6').text(`${key}:${value}`);
         });
 
+
         // Gauge chart.
-        // source: https://com2m.de/blog/technology/gauge-charts-with-plotly/
         
         var washFreq = metaIDFilter[0].wfreq;
 
@@ -118,48 +125,37 @@ function optionChanged(values) {
             {
                 domain: { x: [0, 1], y: [0, 1] },
                 value: washFreq,
+                        color: "white",
+                title: { text: "<b>Belly Button Washing Frequency</b> <br> Scrubs per Week",
+                        //horizontalAlignment: "center",
+                        //verticalAlignment: "top",
+            
+            },
                 type: "indicator",
                 mode: "gauge+number",
-                values: [ 50/9, 50/9, 50/9, 50/9, 50/9, 50/9, 50/9, 50/9, 50/9, 50],
-                rotation: 90,
-                text: [ "8-9", "7-8", "6-7", "5-6", "4-5", "3-4", "2-3", "1-2", "0-1", ""],
-                  textinfo: "text",
-                  textposition: "inside",
-                  marker: {
-                    colors: ["rgba(197, 96, 199, 0.9)", "rgba(197, 96, 199, 0.8)", "rgba(197, 96, 199, 0.7)", "rgba(197, 96, 199, 0.6)",
-                      "rgba(197, 96, 199, 0.5)", "rgba(197, 96, 199, 0.4)", "rgba(197, 96, 199, 0.3)", " rgba(197, 96, 199, 0.2)",
-                     "rgba(197, 96, 199, 0.1)", "transparent"]
-                  },
-                title: { text: "Belly Button Washing Frequency",
-                        horizontalAlignment: "center",
-                        verticalAlignment: "top",
-            },
-                  hoverinfo: "text",
-                  hole: .5,
-                  type: "pie",
-                  showlegend: false
-            }
+                gauge: {
+                    axis: { range: [null, 9] },
+                    steps: [
+                      { range: [0, 1], color: "rgba(53, 53, 165, 0.0)" },
+                      { range: [1, 2], color: "rgba(53, 53, 165, 0.1)" },
+                      { range: [2, 3], color: "rgba(53, 53, 165, 0.2)" },
+                      { range: [3, 4], color: "rgba(53, 53, 165, 0.3)" },
+                      { range: [4, 5], color: "rgba(53, 53, 165, 0.4)" },
+                      { range: [5, 6], color: "rgba(53, 53, 165, 0.5)" },
+                      { range: [6, 7], color: "rgba(53, 53, 165, 0.6)" },
+                      { range: [7, 8], color: "rgba(53, 53, 165, 0.7)" },
+                      { range: [8, 9], color: "rgba(53, 53, 165, 0.8)" },
+                      { range: [8, 9], color: "rgba(53, 53, 165, 0.9)" },
+
+                    ]}
+                  
+                
+        }
         ];
         
         
         var layout = { width: 600, height: 500, margin: { t: 0, b: 0 } };
-        // var gaugeLayout = {
-        //     shapes:[{
-        //         type: 'path',
-        //        // path: path,
-        //         fillcolor: '850000',
-        //         line: {
-        //           color: '850000'
-        //         }
-        //       }],
-        //     height: 500,
-        //     width: 500,
-        //     // xaxis: {zeroline:false, showticklabels:false,
-        //     //            showgrid: false, range: [-1, 1]},
-        //     // yaxis: {zeroline:false, showticklabels:false,
-        //     //            showgrid: false, range: [-1, 1]}
-        //   };
-
+        
          Plotly.newPlot("gauge", gaugeTrace, layout); //, gaugeLayout);
 
     });
