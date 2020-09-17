@@ -137,7 +137,7 @@ function optionChanged(values) {
                 key = key.replace(/(^\w{1})|(\s{1}\w{1})/g, match => match.toUpperCase());
             };
 
-            info.append('h6').text(`${key}:${value}`);
+            info.append('h6').text(`${key}: ${value}`);
         });
 
 
@@ -176,8 +176,7 @@ function optionChanged(values) {
         // Gauge layout.
         var gaugeLayout = { 
             width: 525, 
-            height: 600, 
-            margin: { t: 0, b: 0 } 
+            height: 550, 
         };
 
         // Creating gauge chart.
