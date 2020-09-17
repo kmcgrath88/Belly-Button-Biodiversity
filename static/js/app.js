@@ -1,17 +1,20 @@
-// Use d3.json() to fetch data from JSON file
-// Incoming data is internally referred to as incomingData
-// Appending sample IDs to dropdown
-
+// Use d3.json() to fetch data from JSON file.
+// Incoming data is internally referred to as incomingData.
+// Appending sample IDs to dropdown.
+// Creating function to initialize webpage.
 function init() {
-
     d3.json("data/samples.json").then((incomingData) => {
         var dropDown = d3.select('#selDataset');
         //console.log(incomingData);
+
+        // Loop for all test subject IDs.
         incomingData.names.forEach((name) => {
             dropDown.append('option').text(name).property('value', name);
         });
+
         // Grabbing first ID.
         var firstID = incomingData.names[0];
+
         // Running function on first ID to create initial dashboard.
         optionChanged(firstID);
     });
@@ -93,70 +96,84 @@ function optionChanged(values) {
             text: otuLabels,
         }];
 
-        Plotly.newPlot("bubble", bubbleTrace);
+        // Bubble layout.
+        var bubbleLayout = { 
+            height: 400, 
+            margin: { t: 0, b: 0 } };
+
+        // Creating bubble chart.
+        Plotly.newPlot("bubble", bubbleTrace, bubbleLayout);
 
         // Demographic information
         var info = d3.select('#sample-metadata');
         // console.log(info);
+
+        // Clearing demographic information area.
         info.html('');
+
+        // Accessing metadata.
         var metadata = incomingData.metadata;
         console.log(metadata);
 
         var metaIDFilter = metadata.filter(value => value.id == values);
         console.log(metaIDFilter[0]);
 
+        // Loop for key, values for subject ID metadata.
         Object.entries(metaIDFilter[0]).forEach(([key, value]) => {
-            if (key === 'id'){
+
+            // Formatting demographic keys.
+            if (key === 'id') {
                 key = key.toUpperCase(); // bold?
             }
             else {
-                 key = key.replace(/(^\w{1})|(\s{1}\w{1})/g, match => match.toUpperCase());
-             };
-    
+                key = key.replace(/(^\w{1})|(\s{1}\w{1})/g, match => match.toUpperCase());
+            };
+
             info.append('h6').text(`${key}:${value}`);
         });
 
 
-        // Gauge chart.
-        
+        // Setting wash freq from metadata to a variable.
         var washFreq = metaIDFilter[0].wfreq;
 
+        // Gauge trace.
         var gaugeTrace = [
             {
                 domain: { x: [0, 1], y: [0, 1] },
                 value: washFreq,
-                        color: "white",
-                title: { text: "<b>Belly Button Washing Frequency</b> <br> Scrubs per Week",
-                        //horizontalAlignment: "center",
-                        //verticalAlignment: "top",
-            
-            },
+                color: "white",
+                title: {
+                    text: "<b>Belly Button Washing Frequency</b> <br> Scrubs per Week",
+                },
                 type: "indicator",
                 mode: "gauge+number",
                 gauge: {
-                    bar: {color: "rgba(2, 2, 2, 0.75)"},
+                    bar: { color: "rgba(2, 2, 2, 0.75)" },
                     axis: { range: [null, 9] },
                     steps: [
-                      { range: [0, 1], color: "rgba(53, 53, 165, 0.1)" },
-                      { range: [1, 2], color: "rgba(53, 53, 165, 0.2)" },
-                      { range: [2, 3], color: "rgba(53, 53, 165, 0.3)" },
-                      { range: [3, 4], color: "rgba(53, 53, 165, 0.4)" },
-                      { range: [4, 5], color: "rgba(53, 53, 165, 0.5)" },
-                      { range: [5, 6], color: "rgba(53, 53, 165, 0.6)" },
-                      { range: [6, 7], color: "rgba(53, 53, 165, 0.7)" },
-                      { range: [7, 8], color: "rgba(53, 53, 165, 0.8)" },
-                      { range: [8, 9], color: "rgba(53, 53, 165, 0.9)" },
-
-                    ]}
-                  
-                
-        }
+                        { range: [0, 1], color: "rgba(53, 53, 165, 0.1)" },
+                        { range: [1, 2], color: "rgba(53, 53, 165, 0.2)" },
+                        { range: [2, 3], color: "rgba(53, 53, 165, 0.3)" },
+                        { range: [3, 4], color: "rgba(53, 53, 165, 0.4)" },
+                        { range: [4, 5], color: "rgba(53, 53, 165, 0.5)" },
+                        { range: [5, 6], color: "rgba(53, 53, 165, 0.6)" },
+                        { range: [6, 7], color: "rgba(53, 53, 165, 0.7)" },
+                        { range: [7, 8], color: "rgba(53, 53, 165, 0.8)" },
+                        { range: [8, 9], color: "rgba(53, 53, 165, 0.9)" },
+                    ]
+                }
+            }
         ];
-        
-        
-        var layout = { width: 600, height: 500, margin: { t: 0, b: 0 } };
-        
-         Plotly.newPlot("gauge", gaugeTrace, layout); //, gaugeLayout);
+
+        // Gauge layout.
+        var gaugeLayout = { 
+            width: 525, 
+            height: 500, 
+            margin: { t: 0, b: 0 } 
+        };
+
+        // Creating gauge chart.
+        Plotly.newPlot("gauge", gaugeTrace, gaugeLayout);
 
     });
 };
