@@ -70,16 +70,19 @@ function optionChanged(values) {
             }
         }];
 
-        // Define the bar graph layout.
+        // Bar graph layout.
         var barLayout = {
             title: `<b> Top 10 OTUs for Subject ID: ${subjectID} </b>`,
             xaxis: { title: "<b>Sample Values</b>" },
             yaxis: {
                 title: "<b>OTUs</b>",
                 showticklabels: true
-            }
+            },
+            height: 450,
+            width: 550
         };
 
+        // Creating bar graph.
         Plotly.newPlot("bar", barTrace, barLayout);
 
         // Bubble chart trace.
@@ -91,15 +94,20 @@ function optionChanged(values) {
                 size: sampleValues,
                 color: otuIDs,
                 colorscale: 'Viridis',
-
             },
             text: otuLabels,
         }];
 
         // Bubble layout.
         var bubbleLayout = { 
-            height: 400, 
-            margin: { t: 0, b: 0 } };
+            height: 600, 
+            title: `<b>OTU IDs vs Sample Values for Subject ID ${subjectID}</b>`,
+            xaxis: { title: "<b>OTU ID</b>" },
+            yaxis: {
+                title: "<b>Sample Values</b>", // font???
+            },
+            
+        };
 
         // Creating bubble chart.
         Plotly.newPlot("bubble", bubbleTrace, bubbleLayout);
@@ -133,7 +141,7 @@ function optionChanged(values) {
         });
 
 
-        // Setting wash freq from metadata to a variable.
+        // Setting wash frequency from metadata to a variable.
         var washFreq = metaIDFilter[0].wfreq;
 
         // Gauge trace.
@@ -168,7 +176,7 @@ function optionChanged(values) {
         // Gauge layout.
         var gaugeLayout = { 
             width: 525, 
-            height: 500, 
+            height: 600, 
             margin: { t: 0, b: 0 } 
         };
 
