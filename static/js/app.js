@@ -134,17 +134,17 @@ function optionChanged(values) {
                 type: "indicator",
                 mode: "gauge+number",
                 gauge: {
+                    bar: {color: "rgba(2, 2, 2, 0.75)"},
                     axis: { range: [null, 9] },
                     steps: [
-                      { range: [0, 1], color: "rgba(53, 53, 165, 0.0)" },
-                      { range: [1, 2], color: "rgba(53, 53, 165, 0.1)" },
-                      { range: [2, 3], color: "rgba(53, 53, 165, 0.2)" },
-                      { range: [3, 4], color: "rgba(53, 53, 165, 0.3)" },
-                      { range: [4, 5], color: "rgba(53, 53, 165, 0.4)" },
-                      { range: [5, 6], color: "rgba(53, 53, 165, 0.5)" },
-                      { range: [6, 7], color: "rgba(53, 53, 165, 0.6)" },
-                      { range: [7, 8], color: "rgba(53, 53, 165, 0.7)" },
-                      { range: [8, 9], color: "rgba(53, 53, 165, 0.8)" },
+                      { range: [0, 1], color: "rgba(53, 53, 165, 0.1)" },
+                      { range: [1, 2], color: "rgba(53, 53, 165, 0.2)" },
+                      { range: [2, 3], color: "rgba(53, 53, 165, 0.3)" },
+                      { range: [3, 4], color: "rgba(53, 53, 165, 0.4)" },
+                      { range: [4, 5], color: "rgba(53, 53, 165, 0.5)" },
+                      { range: [5, 6], color: "rgba(53, 53, 165, 0.6)" },
+                      { range: [6, 7], color: "rgba(53, 53, 165, 0.7)" },
+                      { range: [7, 8], color: "rgba(53, 53, 165, 0.8)" },
                       { range: [8, 9], color: "rgba(53, 53, 165, 0.9)" },
 
                     ]}
