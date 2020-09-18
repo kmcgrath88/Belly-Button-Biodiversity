@@ -104,7 +104,7 @@ function optionChanged(values) {
             title: `<b>OTU IDs vs Sample Values for Subject ID ${subjectID}</b>`,
             xaxis: { title: "<b>OTU ID</b>" },
             yaxis: {
-                title: "<b>Sample Values</b>", // font???
+                title: "<b>Sample Values</b>",
             },
             
         };
@@ -131,13 +131,13 @@ function optionChanged(values) {
 
             // Formatting demographic keys.
             if (key === 'id') {
-                key = key.toUpperCase(); // bold?
+                key = key.toUpperCase();
             }
             else {
                 key = key.replace(/(^\w{1})|(\s{1}\w{1})/g, match => match.toUpperCase());
             };
 
-            info.append('h6').text(`${key}: ${value}`);
+            info.append('h6').html(`<b>${key}</b>: ${value}`);
         });
 
 
