@@ -12,13 +12,20 @@ Thanks for checking out my project's repo! By downloading this repo, you'll be a
 <!--About the Project-->
 ## About the Project
 
-By choosing a test subject ID number from the drop down menu, you'll be able to view three interactive graphs and demographic information for that subject. <br>
+By choosing a test subject ID number from the drop down menu, you'll be able to view three interactive charts and demographic information for that subject. <br>
 
-The first graph is a horizontal bar graph with the top 10 OTUs found in that individual. Here is an example:
+The first chart is a horizontal bar graph with the top 10 OTUs found in that individual. Here is an example:
 ![alt text](images/BarGraphEx.png)<br>
 
-The second graph is a bubble chart that displays the OTU IDs and sample values. Here is an example:
+The second chart is a bubble chart that displays the OTU IDs and sample values for that individual. Here is an example:
 ![alt text](images/BubbleChartEx.png)<br>
+
+The third chart is a gauge chart that displays belly button washing frequency per week of the individual. Here is an example:
+![alt text](images/GaugeEx.png)<br>
+
+The demographic information provides you with more details about the test subject. Here is an example:
+![alt text](images/DemoInfoEx.png)<br>
+
 
 
 
