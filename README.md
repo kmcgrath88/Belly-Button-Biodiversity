@@ -1,6 +1,6 @@
 # Belly Button Biodiversity
 
-Thanks for checking out my project's repo! You can visit the website [ HERE ](https://kmcgrath88.github.io/Belly_Button_Biodiversity/) or you can download the repo. You'll be able to observe interactive dashboards on the diversity of microbes in individuals' belly buttons. Also, you'll be able to observe demographic information about the people involved in this study. To learn more about this study, check out: [ Belly Button Biodiversity ](http://robdunnlab.com/projects/belly-button-biodiversity/) <br>
+Thanks for checking out my project's repo! You can visit the website [ HERE ](https://kmcgrath88.github.io/Belly-Button-Biodiversity/) or you can download the repo. You'll be able to observe interactive dashboards on the diversity of microbes in individuals' belly buttons. Also, you'll be able to observe demographic information about the people involved in this study. To learn more about this study, check out: [ Belly Button Biodiversity ](http://robdunnlab.com/projects/belly-button-biodiversity/). <br>
 
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents

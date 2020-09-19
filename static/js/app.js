@@ -15,6 +15,7 @@ function init() {
 
         // Grabbing first ID.
         var firstID = incomingData.names[0];
+        //console.log(firstID);
 
         // Running function on first ID to create initial dashboard.
         optionChanged(firstID);
@@ -29,7 +30,7 @@ function optionChanged(values) {
 
         // Storing samples list of dictionaries to variable.
         var samples = incomingData.samples
-        //console.log(samples);
+        console.log(samples);
 
         // Filter to match Subject ID in drop down with samples list of dictionaries in data file.
         var sampleIDFilter = samples.filter(value => value.id == values);
@@ -41,7 +42,7 @@ function optionChanged(values) {
 
         // Storing dictionary of matching subject ID into variable.
         var result = sampleIDFilter[0];
-        //console.log(result);
+        console.log(result);
 
         // Storing OTU IDs to variable.
         var otuIDs = result.otu_ids;
@@ -123,6 +124,7 @@ function optionChanged(values) {
         var metadata = incomingData.metadata;
         console.log(metadata);
 
+        // Filtering metadata based on subject ID.
         var metaIDFilter = metadata.filter(value => value.id == values);
         console.log(metaIDFilter[0]);
 
@@ -142,6 +144,7 @@ function optionChanged(values) {
 
         // Setting wash frequency from metadata to a variable.
         var washFreq = metaIDFilter[0].wfreq;
+        //console.log(washFreq);
 
         // Gauge trace.
         var gaugeTrace = [
