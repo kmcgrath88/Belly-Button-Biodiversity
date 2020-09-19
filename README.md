@@ -17,6 +17,9 @@ By choosing a test subject ID number from the drop down menu, you'll be able to 
 The first graph is a horizontal bar graph with the top 10 OTUs found in that individual. Here is an example:
 ![alt text](images/BarGraphEx.png)<br>
 
+The second graph is a bubble chart that displays the OTU IDs and sample values. Here is an example:
+![alt text](images/BubbleChartEx.png)<br>
+
 
 
 <!--Project Instructions-->
