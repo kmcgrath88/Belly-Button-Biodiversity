@@ -15,7 +15,7 @@ Thanks for checking out my project's repo! By downloading this repo, you'll be a
 By choosing a test subject ID number from the drop down menu, you'll be able to view three interactive graphs and demographic information for that subject. <br>
 
 The first graph is a horizontal bar graph with the top 10 OTUs found in that individual. Here is an example:
-![alt text](images/BarChartEx.png)<br>
+![alt text](images/BarGraphEx.png)<br>
 
 
 
