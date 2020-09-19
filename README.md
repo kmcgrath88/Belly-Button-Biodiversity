@@ -9,6 +9,32 @@ Thanks for checking out my project's repo! By downloading this repo, you'll be a
   * [Built With](#built-with)
 * [Project Instructions](#project-instructions)
 
+<!--About the Project-->
+## About the Project
+
+By choosing a test subject ID number from the drop down menu, you'll be able to view three interactive graphs and demographic information for that subject. <br>
+
+The first graph is a horizontal bar graph with the top 10 OTUs found in that individual. Here is an example:
+![alt text](images/BarChartEx.png)<br>
+
+
+
+<!--Project Instructions-->
+## Project Instructions
+
+In this assignment, you will build an interactive dashboard to explore the Belly Button Biodiversity dataset, which catalogs the microbes that colonize human navels.<br>
+The dataset reveals that a small handful of microbial species (also called operational taxonomic units, or OTUs, in the study) were present in more than 70% of people, while the rest were relatively rare.
+
+### Step 1: Plotly
+
+1. Use the D3 library to read in samples.json.
+
+2. Create a horizontal bar chart with a dropdown menu to display the top 10 OTUs found in that individual.
+
+* Use sample_values as the values for the bar chart.
+* Use otu_ids as the labels for the bar chart.
+* Use otu_labels as the hovertext for the chart.
+
 
 
 
