@@ -1,5 +1,6 @@
+//-----Belly Button Biodiversity-----//
+
 // Use d3.json() to fetch data from JSON file.
-// Incoming data is internally referred to as incomingData.
 // Appending sample IDs to dropdown.
 // Creating function to initialize webpage.
 function init() {
@@ -20,7 +21,7 @@ function init() {
     });
 };
 
-// Function called in html to dynamically change dashboard based on Test Subject ID drop down chosen.
+// Function called in html to dynamically change dashboard based on Test Subject ID chosen from drop down.
 function optionChanged(values) {
 
     // Pulling in data and creating function.
@@ -99,14 +100,13 @@ function optionChanged(values) {
         }];
 
         // Bubble layout.
-        var bubbleLayout = { 
-            height: 600, 
+        var bubbleLayout = {
+            height: 600,
             title: `<b>OTU IDs vs Sample Values for Subject ID ${subjectID}</b>`,
             xaxis: { title: "<b>OTU ID</b>" },
             yaxis: {
                 title: "<b>Sample Values</b>",
             },
-            
         };
 
         // Creating bubble chart.
@@ -139,7 +139,6 @@ function optionChanged(values) {
 
             info.append('h6').html(`<b>${key}</b>: ${value}`);
         });
-
 
         // Setting wash frequency from metadata to a variable.
         var washFreq = metaIDFilter[0].wfreq;
@@ -174,9 +173,9 @@ function optionChanged(values) {
         ];
 
         // Gauge layout.
-        var gaugeLayout = { 
-            width: 525, 
-            height: 550, 
+        var gaugeLayout = {
+            width: 525,
+            height: 550,
         };
 
         // Creating gauge chart.
