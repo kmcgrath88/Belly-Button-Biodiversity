@@ -1,6 +1,6 @@
 # Belly Button Biodiversity
 
-Thanks for checking out my project's repo! By downloading this repo, you'll be able to observe interactive dashboards on the diversity of microbes in test subjects' belly buttons. Also, you'll be able to observe demographic information about the people involved in this study. To learn more about this study, check out: [ Belly Button Biodiversity ](http://robdunnlab.com/projects/belly-button-biodiversity/) <br>
+Thanks for checking out my project's repo! You can visit the website [ HERE ] (https://kmcgrath88.github.io/Belly_Button_Biodiversity/) or you can download the repo. You'll be able to observe interactive dashboards on the diversity of microbes in individuals' belly buttons. Also, you'll be able to observe demographic information about the people involved in this study. To learn more about this study, check out: [ Belly Button Biodiversity ](http://robdunnlab.com/projects/belly-button-biodiversity/) <br>
 
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents
@@ -47,17 +47,17 @@ The dataset reveals that a small handful of microbial species (also called opera
 
 2. Create a horizontal bar chart with a dropdown menu to display the top 10 OTUs found in that individual.
 
-  * Use sample_values as the values for the bar chart.
-  * Use otu_ids as the labels for the bar chart.
-  * Use otu_labels as the hovertext for the chart.
+* Use sample_values as the values for the bar chart.
+* Use otu_ids as the labels for the bar chart.
+* Use otu_labels as the hovertext for the chart.
 
 3. Create a bubble chart that displays each sample.
 
-  * Use otu_ids for the x values.
-  * Use sample_values for the y values.
-  * Use sample_values for the marker size.
-  * Use otu_ids for the marker colors.
-  * Use otu_labels for the text values.
+* Use otu_ids for the x values.
+* Use sample_values for the y values.
+* Use sample_values for the marker size.
+* Use otu_ids for the marker colors.
+* Use otu_labels for the text values.
 
 4. Display the sample metadata, i.e., an individual's demographic information.
 
